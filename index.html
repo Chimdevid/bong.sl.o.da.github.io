@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Love Photos</title>
+
+<style>
+body{
+    margin:0;
+    background:black;
+    overflow:hidden;
+    font-family:Arial;
+}
+
+.love{
+    position:absolute;
+    color:white;
+    font-size:22px;
+    text-shadow:0 0 10px #00ffff;
+    animation: float 10s linear infinite;
+}
+
+img{
+    position:absolute;
+    width:120px;
+    border-radius:12px;
+    animation: float 12s linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+    to{
+        transform:translateY(-100vh);
+        opacity:1;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<script>
+
+let photos = [
+"photos/1.jpg",
+"photos/2.jpg",
+"photos/3.jpg",
+"photos/4.jpg",
+"photos/5.jpg",
+"photos/7.jpg",
+
+];
+
+function createPhoto(){
+
+let img = document.createElement("img");
+
+let randomPhoto = photos[Math.floor(Math.random()*photos.length)];
+
+img.src = randomPhoto;
+
+img.style.left = Math.random()*100 + "vw";
+img.style.animationDuration = (6 + Math.random()*10) + "s";
+
+document.body.appendChild(img);
+
+}
+
+function createLove(){
+
+let text = document.createElement("div");
+
+text.className="love";
+text.innerHTML="I love you oun da😭❤️";
+
+text.style.left = Math.random()*100 + "vw";
+text.style.animationDuration=(5+Math.random()*10)+"s";
+
+document.body.appendChild(text);
+
+}
+
+setInterval(createPhoto,1500);
+setInterval(createLove,400);
+
+</script>
+<video autoplay loop hidden>
+    <source src="video.mp4" type="video/mp4">
+</video>
+
+</body>
+</html>
